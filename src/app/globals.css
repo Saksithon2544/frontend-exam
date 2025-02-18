@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+html {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+  background-color: #ffffff; /* สีพื้นหลังในโหมดสว่าง */
+  color: #333333; /* สีตัวอักษรในโหมดสว่าง */
+}
+
+/* โหมดมืด */
+body.dark {
+  background-color: #121212; /* สีพื้นหลังในโหมดมืด */
+  color: #ffffff; /* สีตัวอักษรในโหมดมืด */
+}
+
+body.dark .text-light {
+  color: #d1d5db; /* สีข้อความในโหมดมืด */
+}
+
+body .text-dark {
+  color: #1f2937; /* สีข้อความในโหมดสว่าง */
+}
