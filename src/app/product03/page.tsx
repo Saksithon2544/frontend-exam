@@ -7,9 +7,11 @@ import { addToCart, removeFromCart, loadCartFromLocalStorage } from "@/store/car
 import { RootState } from "@/store/store";
 
 interface Product {
-  id: number;
+  id: string;
   title: string;
   price: number;
+  thumbnail: string;
+  quantity: number;
 }
 
 const ProductsPage = () => {
@@ -39,10 +41,12 @@ const ProductsPage = () => {
       return;
     }
 
-    const newProductData = {
-      id: Date.now(),
+    const newProductData: Product = {
       title: newProduct.title,
       price: parseFloat(newProduct.price),
+      thumbnail: "",
+      quantity: 1,
+      id: "",
     };
 
     const updatedProducts = [...products, newProductData];
@@ -71,7 +75,7 @@ const ProductsPage = () => {
     setTimeout(() => setAlertMessage(null), 2000);
   };
 
-  const deleteProduct = (id: number) => {
+  const deleteProduct = (id: string) => {
     if (confirm("❌ คุณแน่ใจหรือไม่ว่าต้องการลบสินค้านี้?")) {
       const updatedProducts = products.filter((p) => p.id !== id);
       saveProductsToStorage(updatedProducts);

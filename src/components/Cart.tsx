@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart, removeFromCart, loadCartFromLocalStorage } from "@/store/cartSlice";
+import { removeFromCart, loadCartFromLocalStorage } from "@/store/cartSlice";
 import { RootState } from "@/store/store";
 
 const Cart = () => {

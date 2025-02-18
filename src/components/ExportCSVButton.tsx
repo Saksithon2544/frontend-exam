@@ -2,13 +2,19 @@
 import React from "react";
 
 interface ExportCSVButtonProps {
-  data: any[]; 
+  data: Product[]; 
   filename: string;
+}
+interface Product {
+  id: string;
+  title: string;
+  price: number;
+  thumbnail: string;
+  quantity: number;
 }
 
 const ExportCSVButton: React.FC<ExportCSVButtonProps> = ({ data, filename }) => {
-  // ฟังก์ชันแปลงข้อมูลเป็น CSV
-  const convertToCSV = (data: any[]) => {
+  const convertToCSV = (data: Product[]) => {
     if (data.length === 0) return "";
 
     const headers = Object.keys(data[0]).join(",") + "\n";

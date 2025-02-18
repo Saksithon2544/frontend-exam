@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface CartItem {
-  id: number;
+  id: string;
   title: string;
   price: number;
   quantity: number;
@@ -17,7 +17,7 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart: (state, action: PayloadAction<{ id: number; title: string; price: number }>) => {
+    addToCart: (state, action: PayloadAction<{ id: string; title: string; price: number }>) => {
       const item = state.cart.find((p) => p.id === action.payload.id);
       if (item) {
         item.quantity += 1;
@@ -28,7 +28,7 @@ const cartSlice = createSlice({
         localStorage.setItem("cart", JSON.stringify(state.cart)); // ✅ บันทึกลง localStorage
       }
     },
-    removeFromCart: (state, action: PayloadAction<number>) => {
+    removeFromCart: (state, action: PayloadAction<string>) => {
       state.cart = state.cart.filter((p) => p.id !== action.payload);
       if (typeof window !== "undefined") {
         localStorage.setItem("cart", JSON.stringify(state.cart)); // ✅ บันทึกลง localStorage

@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
 import { useForm, SubmitHandler } from "react-hook-form";
 import DarkModeToggle from "@/components/DarkModeToggle";
+import Link from "next/link";
 
 interface ILoginForm {
   email: string;
@@ -114,10 +115,10 @@ export default function LoginPage() {
           </button>
         </form>
         <div className="mt-4 text-center">
-          Don't have an account?{" "}
-          <a href="/" className="text-blue-600 hover:underline">
+          Don&apos;t have an account?{" "}
+          <Link href="/" className="text-blue-600 hover:underline">
             Register here
-          </a>
+          </Link>
         </div>
         <div className="mt-4 text-center">
           <DarkModeToggle />
